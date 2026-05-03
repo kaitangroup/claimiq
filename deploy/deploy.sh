@@ -42,6 +42,6 @@ pm2 save
 echo ""
 echo "=============================="
 echo "  Deploy complete!"
-echo "  App running at: http://localhost:4002"
-echo "  Public URL: https://calimiq.whatsthepayout.com"
+echo "  App running at: http://localhost:4012"
+echo "  Public URL: https://claimiq.whatsthepayout.com"
 echo "=============================="
