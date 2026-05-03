@@ -1,0 +1,51 @@
+#!/bin/bash
+# =============================================================
+#  claimiq — DigitalOcean Droplet Setup Script
+#  Run this ONCE on a fresh Ubuntu 22.04 droplet as root:
+#    bash setup.sh
+# =============================================================
+
+set -e
+echo "=============================="
+echo "  claimiq
+ Server Setup"
+echo "=============================="
+
+ # --- 1. System update ---
+echo "[1/9] Updating system packages..."
+#apt-get update -y && apt-get upgrade -y 
+
+
+
+# --- 6. Create app directory ---
+echo "[6/9] Creating app directory..."
+
+mkdir -p /var/log/claimiq
+
+
+
+
+# --- 8. Setup Nginx ---
+echo "[8/9] Configuring Nginx..."
+cp /var/www/claimiq/deploy/nginx.conf /etc/nginx/sites-available/claimiq
+
+ln -sf /etc/nginx/sites-available/claimiq /etc/nginx/sites-enabled/claimiq
+
+rm -f /etc/nginx/sites-enabled/default 
+nginx -t && systemctl reload nginx
+
+# --- 9. Firewall ---
+echo "[9/9] Configuring firewall..."
+ufw allow OpenSSH
+ufw allow 'Nginx Full'
+ufw --force enable
+
+echo ""
+echo "=============================="
+echo "  Setup complete!"
+echo ""
+echo "  NEXT STEPS:"
+echo "  1. Upload your project to /var/www/claimiq/"
+echo "  2. Run: bash /var/www/claimiq/deploy/deploy.sh"
+echo "  3. Get SSL cert: certbot --nginx -d calimiq.whatsthepayout.com -d www.calimiq.whatsthepayout.com"
+echo "=============================="

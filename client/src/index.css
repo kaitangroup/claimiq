@@ -1,0 +1,137 @@
+/* ── Fonts ──────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── ClaimIQ Palette: Deep navy/slate with gold accent ─ */
+    /* Authoritative, legal, precise — law firm meets fintech */
+
+    --background:        220 25% 97%;
+    --foreground:        222 35% 11%;
+
+    --card:              0 0% 100%;
+    --card-foreground:   222 35% 11%;
+
+    --popover:           0 0% 100%;
+    --popover-foreground:222 35% 11%;
+
+    /* Gold accent — signals value/transaction */
+    --primary:           42 85% 38%;
+    --primary-foreground:0 0% 100%;
+
+    --secondary:         220 18% 94%;
+    --secondary-foreground:222 35% 20%;
+
+    --muted:             220 16% 93%;
+    --muted-foreground:  220 10% 48%;
+
+    --accent:            220 16% 91%;
+    --accent-foreground: 222 35% 15%;
+
+    --destructive:       0 72% 46%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border:            220 14% 88%;
+    --input:             220 14% 88%;
+    --ring:              42 85% 38%;
+
+    --radius: 0.375rem;
+
+    /* Custom semantic tokens */
+    --navy:              222 44% 17%;
+    --navy-mid:          220 38% 24%;
+    --gold:              42 85% 38%;
+    --gold-light:        42 85% 92%;
+    --success:           145 55% 32%;
+    --warning:           30 90% 42%;
+
+    /* Typography */
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .dark {
+    --background:        222 35% 8%;
+    --foreground:        220 20% 88%;
+
+    --card:              222 35% 11%;
+    --card-foreground:   220 20% 88%;
+
+    --popover:           222 35% 11%;
+    --popover-foreground:220 20% 88%;
+
+    --primary:           42 90% 52%;
+    --primary-foreground:222 35% 8%;
+
+    --secondary:         220 25% 17%;
+    --secondary-foreground:220 20% 80%;
+
+    --muted:             220 25% 16%;
+    --muted-foreground:  220 12% 52%;
+
+    --accent:            220 25% 18%;
+    --accent-foreground: 220 20% 85%;
+
+    --destructive:       0 65% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border:            220 25% 20%;
+    --input:             220 25% 20%;
+    --ring:              42 90% 52%;
+
+    --navy:              220 38% 14%;
+    --navy-mid:          220 30% 20%;
+    --gold:              42 90% 52%;
+    --gold-light:        42 60% 20%;
+    --success:           145 55% 42%;
+    --warning:           30 90% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    line-height: 1.2;
+  }
+  h5, h6 {
+    font-family: var(--font-body);
+    font-weight: 600;
+  }
+}
+
+/* ── Utility classes ─────────────────────────────────────── */
+.font-display { font-family: var(--font-display); }
+.font-body    { font-family: var(--font-body); }
+
+.text-navy    { color: hsl(var(--navy)); }
+.bg-navy      { background-color: hsl(var(--navy)); }
+.bg-navy-mid  { background-color: hsl(var(--navy-mid)); }
+.text-gold    { color: hsl(var(--gold)); }
+.bg-gold      { background-color: hsl(var(--gold)); }
+.bg-gold-light{ background-color: hsl(var(--gold-light)); }
+
+/* Score gauge colors */
+.score-strong   { color: hsl(var(--success)); }
+.score-moderate { color: hsl(var(--warning)); }
+.score-weak     { color: hsl(var(--destructive)); }
+
+.bg-score-strong   { background-color: hsl(145 55% 95%); }
+.bg-score-moderate { background-color: hsl(30 90% 95%); }
+.bg-score-weak     { background-color: hsl(0 72% 95%); }
+.dark .bg-score-strong   { background-color: hsl(145 30% 15%); }
+.dark .bg-score-moderate { background-color: hsl(30 50% 15%); }
+.dark .bg-score-weak     { background-color: hsl(0 40% 15%); }
