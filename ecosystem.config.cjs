@@ -9,11 +9,11 @@ module.exports = {
       max_memory_restart: '512M',
       env: {
         NODE_ENV: 'production',
-        PORT: 4004,
+        PORT: 4012,
       },
       env_production: {
         NODE_ENV: 'production',
-        PORT: 4004,
+        PORT: 4012,
       },
       error_file: '/var/log/claimiq/error.log',
       out_file: '/var/log/claimiq/out.log',
